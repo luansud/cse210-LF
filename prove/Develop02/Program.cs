@@ -1,5 +1,15 @@
 using System;
 
+
+// Exceeding Requirements for this activity
+
+// Verifying if exists something in List entries when the user type option 2 for Display
+// Error Message if the user doesn't type a option between 1-5 
+// Error Message if the user hasn't written any in the journal
+// Condition for verify if the File Exist when calling LoadFromFile
+// Message informing the user that the file has been uploaded successfully
+
+
 class Program
 {
     static void Main(string[] args)
@@ -27,22 +37,35 @@ class Program
 
             } else if (userResponse == 2)
             {
-                _journal.DisplayAll();      
+                if (_journal._entries.Count == 0){
+                    Console.WriteLine("\nERROR: There is nothing to Display");
+                } else {_journal.DisplayAll();}
             } 
             else if (userResponse == 3)
             {
+                Console.WriteLine("What is the filename? ");
+                string fileName = Console.ReadLine();
+
+                if (File.Exists(fileName)){
+                    _journal.LoadFromFile(fileName);
+                    Console.WriteLine("\nYour file has been updated successfully");
+                } else {Console.WriteLine("This File doesn't exist");}
 
             } 
             else if (userResponse == 4)
             {
-                Console.WriteLine("What is the file name? ");
-                string fileName = Console.ReadLine();
-                _journal.SaveToFile(fileName);
+                if (_journal._entries.Count == 0){
+                    Console.WriteLine("\nERROR: You haven't write nothing in your Journal yet");
+                } else {
+                    Console.WriteLine("What is the file name? ");
+                    string fileName = Console.ReadLine();
+                    _journal.SaveToFile(fileName);
+                }
 
             } 
             else {
                 if (userResponse == 5){} 
-                else {Console.WriteLine("Please type a correct option");}
+                else {Console.WriteLine("\nERROR: Please type a correct option (1-5)");}
             }
 
         }

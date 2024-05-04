@@ -28,5 +28,4 @@ public class PromptGenerator{ // Supplies random prompts whenever needed.
         return _prompts[position];
     }
 
-    // IDEIA resume your day and one Word. 
 }

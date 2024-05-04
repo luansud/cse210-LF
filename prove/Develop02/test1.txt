@@ -1,6 +1,0 @@
-$
-Date: {entry._date} - Prompt: {entry._promptText}
-{entry._entryText}
-$
-Date: {entry._date} - Prompt: {entry._promptText}
-{entry._entryText}
