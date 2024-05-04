@@ -1,6 +1,6 @@
 using System;
 
-class Entry{ // Represents a single journal entry.
+public class Entry{ // Represents a single journal entry.
     
     // Hold Data
     

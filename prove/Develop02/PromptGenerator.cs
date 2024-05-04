@@ -1,6 +1,6 @@
 using System;
 
-class PromptGenerator{ // Supplies random prompts whenever needed.
+public class PromptGenerator{ // Supplies random prompts whenever needed.
     public static List<string> _prompts = new List<string>(){
         "Who did i help today?",
         "How did I see the hand of the Lord in my life today?",
