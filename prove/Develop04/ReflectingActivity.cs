@@ -19,13 +19,15 @@ class ReflectingActivity : Activity{
         _questions.Add("How can you keep this experience in mind in the future?");
     }
     public void Run(){
+        Console.Clear();
+        DisplayStartingMessage();
+        _duration = int.Parse(Console.ReadLine());
         GetReady(3);
         DisplayPrompt();
         DisplayQuestions();
         // I call it again for receive another random Prompt
         GetRandomQuestion();
         DisplayQuestions();
-        _duration = 30;
         DisplayEndingMessage();
     }
     public string GetRandomPrompt(){

@@ -13,12 +13,13 @@ class Activity{
 
     public void DisplayStartingMessage(){
         Console.WriteLine($"Welcome to the {_name}.");
+        Console.WriteLine("");
         Console.WriteLine(_description);
-        Console.WriteLine($"How Long, in seconds, would you like for your session? ");
+        Console.Write($"\nHow Long, in seconds, would you like for your session? ");
     }
     public void DisplayEndingMessage(){
         Console.WriteLine("\nWell done!");
-        ShowSpinner(5);
+        ShowSpinner(3);
         Console.WriteLine($"\nYou have completed another {_duration} seconds of the {_name}");
         ShowSpinner(5);
         Console.Clear();
