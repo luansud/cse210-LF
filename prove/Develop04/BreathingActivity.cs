@@ -9,7 +9,6 @@ class BreathingActivity : Activity{
         DisplayStartingMessage();
         _duration = int.Parse(Console.ReadLine());
         Breathing();
-        Console.WriteLine("\n Well done");
         DisplayEndingMessage();
     }
 
@@ -18,6 +17,7 @@ class BreathingActivity : Activity{
         DateTime _endTime = _dateTime.AddSeconds(_duration);
         int breathIn = 2;
         int breathOut = 3;
+        GetReady(4);
         while(DateTime.Now < _endTime){
             Console.WriteLine(" ");
             Console.Write("Breathe in...");

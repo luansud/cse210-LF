@@ -9,9 +9,14 @@ class ListingActivity : Activity{
     }
 
     public void Run(){
-
+        Console.Clear();
+        DisplayStartingMessage();
+        _duration = int.Parse(Console.ReadLine());
+        // Breathing();
+        DisplayEndingMessage();
     }
     public void GetRandomPrompt(){
+        Random random= new Random();
 
     }
     public List<string> GetListFromUser(){

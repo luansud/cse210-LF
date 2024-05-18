@@ -17,7 +17,11 @@ class Activity{
         Console.WriteLine($"How Long, in seconds, would you like for your session? ");
     }
     public void DisplayEndingMessage(){
-        Console.WriteLine($"You have completed another {_duration} seconds of the {_name}");
+        Console.WriteLine("\nWell done!");
+        ShowSpinner(5);
+        Console.WriteLine($"\nYou have completed another {_duration} seconds of the {_name}");
+        ShowSpinner(5);
+        Console.Clear();
     }
     public void ShowSpinner(int seconds){
         List<string> slash = new List<string>();
@@ -36,7 +40,7 @@ class Activity{
         while(DateTime.Now <_endTime){
             string s = slash[y];
             Console.Write(s);
-            Thread.Sleep(1000);
+            Thread.Sleep(500);
             Console.Write("\b \b");
             y++;
             if(y >= slash.Count){
@@ -54,6 +58,12 @@ class Activity{
             Console.Write("\b \b");
             y--;
         }
+    }
+
+    public void GetReady(int seconds){
+        Console.WriteLine("Get Ready...");
+        ShowSpinner(seconds);
+        Console.WriteLine("");
     }
 
 
