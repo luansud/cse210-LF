@@ -1,5 +1,9 @@
 using System;
 
+// Exceed Requirements
+// Dictionary for count each activity that the user made.
+// New Functions and methods for make the code cleaner
+
 class Program
 {
     static void Main(string[] args)
