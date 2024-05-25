@@ -1,0 +1,2 @@
+Simple Goal:|test|testandaosdoasdjas|20|False
+Check List Goal:|agora vai|sera que conseguimos|30|300|10|10
