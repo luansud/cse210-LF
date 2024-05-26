@@ -14,10 +14,12 @@ abstract class Goal{
     public abstract int RecordEvent();
     public abstract bool IsComplete();
 
-
+    public string GetName(){
+        return _shortName;
+    }
     public virtual string GetDetailsString(){
         string check = " ";
-        if(IsComplete()){check = "X";}
+        if(IsComplete() == true){check = "X";}
         return $"[{check}] {_shortName} ({_description})"; // undefined yet
     }
 

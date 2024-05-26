@@ -23,13 +23,13 @@ class GoalManager{
                 if(mainMenuInput == 1){
                     CreateGoal();
                 } else if(mainMenuInput == 2){
-                    ListGoalName();
+                    ListGoalDetails();
                 } else if(mainMenuInput == 3){
                     SaveGoals();
                 } else if(mainMenuInput == 4){
                     LoadGoals();
                 } else if(mainMenuInput == 5){
-                    
+                    RecordEvent();
                 } else if(mainMenuInput == 6){
                     break;
                 } else {
@@ -73,12 +73,13 @@ class GoalManager{
     }
     public void ListGoalName(){
         for(int i = 0; i < _goals.Count; i++){
-            Console.WriteLine($"{i+1}. {_goals[i].GetDetailsString()}");
+            Console.WriteLine($"{i+1}. {_goals[i].GetName()}");
         }
     }
     public void ListGoalDetails(){
-        // loop the list of goals and display the full details
-
+        for(int i = 0; i < _goals.Count; i++){
+            Console.WriteLine($"{i+1}. {_goals[i].GetDetailsString()}");
+        }
     }
     public void CreateGoal(){
         // display sub-menu and select goal type
@@ -113,21 +114,19 @@ class GoalManager{
     public void SaveGoals(){
         Console.WriteLine("What is the filename for the goal file? ");
         string fileName = Console.ReadLine();
-
         using(StreamWriter saveGoals = new StreamWriter(fileName)){
             saveGoals.WriteLine(_score);
             for (int i = 0; i < _goals.Count; i++){
                 saveGoals.WriteLine(_goals[i].GetStringRepresentation());
             }
         }
-
-        // goal to a string and then save the string
-        // use | to divide strings
+        Console.WriteLine("\n-----Your file has been save------");
     }
     public void LoadGoals(){
         Console.WriteLine("What is the filename for the goal file? ");
         string fileName = Console.ReadLine();
         string[] lines = System.IO.File.ReadAllLines(fileName);
+        _score = int.Parse(lines[0]);
         foreach (string line in lines)
         {
             string[] parts = line.Split("|");
@@ -142,20 +141,17 @@ class GoalManager{
                 _goals.Add(checklistGoal1);
             }
         }
-
-        // Checklit will also need amountedcompleted in the contructor.
-
+        Console.WriteLine("\n------Your file has been uploaded successfully------");
     }
     public void RecordEvent(){
-        // Display a list of all the goal names
-        // ask user to select a goal, typing a number
-        // Call RecordEvent on the correct
-        // Update the score based on the points 
-        // display current points
+        ListGoalName();
+        Console.Write("\nWhich goal did you accomplish? ");
+        int recordInput = 0;
+        try{recordInput = int.Parse(Console.ReadLine());}
+        catch (FormatException){Console.WriteLine("Error! Please type the Goal's number");}
+        // Getting the points for the assignment
+        int goalPoints = _goals[recordInput-1].RecordEvent();
+        Console.WriteLine($"\nCongratulations! You have earned {goalPoints} points.");
+        _score += goalPoints;
     }
-
-
-
-
-
 }

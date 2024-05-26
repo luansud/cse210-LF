@@ -1,0 +1,4 @@
+600
+Simple Goal:|Amar a todos|mostrar amor e paciencia|50|False
+Eternal Goal:|Cuidar da minha familia|nunca deixar faltar amor cuidado e respeito em meu lar|100|
+Check List Goal:|Passar em Testes de Cyber|Fazer as provas de Cyber Segurança e passsar em todas|50|300|6|6

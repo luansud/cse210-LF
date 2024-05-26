@@ -16,8 +16,15 @@ class ChecklistGoal : Goal{
     }
 
     public override int RecordEvent()
-    {
-        return 0;
+    {   
+        if(_amountCompleted == _target){
+            return _bonus;
+        } else if(_amountCompleted > _target){
+            return _points;
+        } else {
+            _amountCompleted += 1;
+            return _points;
+        }
     }
 
     public override bool IsComplete()
@@ -27,8 +34,6 @@ class ChecklistGoal : Goal{
         } else {
             return false;
         }
-        
-        
     }
 
     public override string GetDetailsString()
