@@ -14,6 +14,10 @@ abstract class Activity{
     }
 
     public abstract double GetDistance();
-    public abstract double GetSpeed();
-    public abstract double GetPace();
+    public double GetSpeed(){
+        return GetDistance()/_minutes * 60;
+    }
+    public double GetPace(){
+        return _minutes / GetDistance();
+    }
 }

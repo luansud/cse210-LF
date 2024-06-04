@@ -12,12 +12,5 @@ class Biking : Activity{
         return _minutes/60 * _speed;
     }
 
-    public override double GetPace()
-    {
-        return _minutes / GetDistance();
-    }
 
-    public override double GetSpeed(){
-        return (GetDistance()/_minutes) * 60;
-    }
 }
